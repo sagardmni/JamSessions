@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>HOME</title>
+<link rel="stylesheet" href="/css/table.css">
+</head>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.js"></script>
+<script type="text/javascript" src="/js/app.js"></script>
+<script src="/js/controllers/sessionController.js"></script>
+<body ng-app="myApp" ng-controller="sessionController" data-ng-init="loadSessions()">
+<h1 style="text-align: center"> Jam Sessions </h1>
+<table>
+  <thead>
+    <tr>
+      <th>LOCATION</th>
+      <th>GENRE</th>
+      <th>LOOKING FOR </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-click="gotoSession(session)" data-ng-repeat="session in sessions">
+      <td><strong>{{session.location}}</strong></td>
+      <td>{{session.genre}}</td>
+      <td>
+        <div data-ng-repeat="musician in session.required">{{musician}};</div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<form ng-submit="createSessionVisible()" class="form login">
+  <div style="text-align: center; color: blue" class="form__field">
+    <input type="submit" value="Create New Session" align="center">
+  </div>
+  <div style="text-align:center;color:blue"></div>
+</form>
+ <div style="text-align: center" ng-show="userVisible">
+  Jam creator: {{user.username}}<br>
+  Email: {{user.email}}<br>
+  Phone: {{user.phone}}<br>
+  <input data-ng-click="startMessage()" type="button" value="Send message">
+ </div>
+ <div style="text-align: center" ng-show="sendMessageVisible">
+  <form ng-submit="sendMessage()">
+   <input type="text" ng-model="form.message" id="message"><BR>
+   <input type="submit" value="Submit">
+  </form>
+ </div>
+<div ng-show="createSessionOn">
+<FORM name="sessionForm" ng-submit="createSession()" style="text-align: center;margin: 0 auto; width:600px;">
+    <LABEL>Location: </LABEL>
+              <INPUT type="text" ng-model="form.location" id="location"><BR>
+    <LABEL>Genre: </LABEL>
+              <INPUT type="text" ng-model="form.genre" id="genre"><BR>
+    <LABEL>Looking for: </LABEL>
+      <INPUT type="text" ng-model="form.musician" id="musician"> <INPUT type="button" value="+"> <br>
+    <INPUT type="submit" value="Add Session">
+ </FORM>
+</div>
+</body>
+</html>

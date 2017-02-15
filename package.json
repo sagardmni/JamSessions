@@ -1,0 +1,27 @@
+{
+  "name": "jamsessions",
+  "version": "1.0.0",
+  "description": "A web app that allows like-minded musicians to connect",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sagardmni/JamSessions.git"
+  },
+  "author": "Sagar Damani",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sagardmni/JamSessions/issues"
+  },
+  "homepage": "https://github.com/sagardmni/JamSessions#readme",
+  "dependencies": {
+    "body-parser": "^1.16.1",
+    "ejs": "^2.5.5",
+    "express": "^4.14.1",
+    "jsonwebtoken": "^7.2.1",
+    "mongoose": "^4.8.2",
+    "pg": "^6.1.2"
+  }
+}
